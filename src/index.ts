@@ -1,4 +1,4 @@
-class SampleKlass {
+export class SampleKlass {
   private readonly prop: string;
 
   public constructor(prop: string) {
@@ -10,8 +10,6 @@ class SampleKlass {
   }
 }
 
-function SampleFunction() {
+export function SampleFunction() {
   return "call SampleFunction"
 }
-
-export { SampleKlass, SampleFunction };
