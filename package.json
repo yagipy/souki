@@ -2,18 +2,87 @@
   "name": "souki",
   "version": "1.0.0",
   "description": "",
-  "main": "build/index.js",
-  "files": [
-    "build"
-  ],
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build"
+    "build": "npm-run-all build:ts build:ts_babel build:ts_babel_esm",
+    "build:ts_babel": "babel src --out-dir lib --extensions '.ts,.tsx'",
+    "build:ts_babel_esm": "babel --config-file ./babel.config.esm.js src --out-dir esm --extensions '.ts,.tsx'",
+    "build:ts": "tsc --build",
+    "commitizen": "git cz",
+    "release": "standard-version",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "watch:ts": "tsc --build --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "files": [
+    "lib/**/*",
+    "esm/**/*",
+    "src/**/*",
+    "/react.js",
+    "/react.d.ts",
+    "!*.tsbuildinfo",
+    "!*.test.js"
+  ],
+  "keywords": [
+    "react"
+  ],
+  "author": "HiroyukiYagihashi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HiroyukiYagihashi/souki.git"
+  },
   "devDependencies": {
-    "typescript": "^4.1.2"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "@types/jest": "^26.0.10",
+    "@types/react": "^16.9.46",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "babel-jest": "^26.3.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "history": "^5.0.0",
+    "husky": "^4.2.5",
+    "jest": "^26.2.2",
+    "lint-staged": "^10.2.11",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "standard-version": "^9.0.0",
+    "typescript": "^4.0.1-rc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --shell"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2"
   }
 }
