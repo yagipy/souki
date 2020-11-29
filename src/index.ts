@@ -10,6 +10,6 @@ export class SampleKlass {
   }
 }
 
-export function SampleFunction() {
-  return "call SampleFunction"
+export function SampleFunction(): string {
+  return "call SampleFunction";
 }
