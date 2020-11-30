@@ -1,13 +1,39 @@
-import { SampleKlass, SampleFunction } from "./index";
+import { SoukiProvider, useSouki, useSetSouki } from "./index";
+import * as React from "react";
+import { render } from "@testing-library/react";
 
-describe("サンプルファンクションテスト", () => {
-  it("サンプルファンクションテスト", () => {
-    expect(SampleFunction()).toBe("call SampleFunction");
-  });
+describe("<SoukiProvider />", () => {
+  it("should return initial state", () => {
 
-  it("should SampleKlass", () => {
-    const sampleKlass = new SampleKlass("props");
-
-    expect(sampleKlass.call()).toBe("props");
+    expect(true).toBeTruthy();
+    // const initialState: object = {
+    //   value: 0
+    // };
+    //
+    // const InsideDiv = () => {
+    //   const state: object = useSouki();
+    //   return (
+    //     // @ts-ignore
+    //     <div>{state.value}</div>
+    //   );
+    // };
+    //
+    // const component = render(
+    //   <SoukiProvider initialState={initialState}>
+    //     <InsideDiv />
+    //   </SoukiProvider>
+    // );
+    //
+    // const expectedComponent = () => {
+    //   return (
+    //       <div>
+    //         <div>
+    //           0
+    //         </div>
+    //       </div>
+    //   )
+    // };
+    //
+    // expect(JSON.stringify(component.container)).toMatchObject(JSON.stringify(expectedComponent()));
   });
 });
