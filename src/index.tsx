@@ -11,9 +11,7 @@ import * as React from "react";
 // };
 
 const SoukiContext = createContext<object>({});
-const SetSoukiContext = createContext<
-  Dispatch<SetStateAction<object>>
-  >(() => {});
+const SetSoukiContext = createContext<Dispatch<SetStateAction<object>>>(() => {});
 
 export function useSouki() {
   return useContext(SoukiContext);
@@ -26,15 +24,13 @@ export function SoukiProvider(props: {
   initialState: object;
   children: React.ReactNode;
 }) {
-  const [state, setState] = useState<object>(
-    props.initialState
-  );
+  const [state, setState] = useState<object>(props.initialState);
 
   return (
     <SoukiContext.Provider value={state}>
-    <SetSoukiContext.Provider value={setState}>
-      {props.children}
+      <SetSoukiContext.Provider value={setState}>
+        {props.children}
       </SetSoukiContext.Provider>
-      </SoukiContext.Provider>
+    </SoukiContext.Provider>
   );
 }
