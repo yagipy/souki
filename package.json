@@ -6,6 +6,7 @@
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
+    "prepare": "npm run build",
     "build": "npm-run-all build:ts build:ts_babel build:ts_babel_esm",
     "build:ts_babel": "babel src --out-dir lib --extensions '.ts,.tsx'",
     "build:ts_babel_esm": "babel --config-file ./babel.config.esm.js src --out-dir esm --extensions '.ts,.tsx'",
