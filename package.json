@@ -27,7 +27,8 @@
     "!*.test.js"
   ],
   "keywords": [
-    "react"
+    "react",
+    "state"
   ],
   "author": "HiroyukiYagihashi",
   "license": "MIT",
