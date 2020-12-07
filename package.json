@@ -1,7 +1,7 @@
 {
   "name": "souki",
-  "version": "1.2.3",
-  "description": "",
+  "version": "1.2.4",
+  "description": "souki is a state management library for React apps.",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",

@@ -9,6 +9,47 @@ Install souki by npm.
 npm i souki
 ```
 
+### Example
+
+```javascript
+function App() {
+  const InitialState = {
+    count: 0
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <SoukiProvider initialState={InitialState}>
+          <SampleComponent />
+        </SoukiProvider>
+      </header>
+    </div>
+  );
+}
+```
+
+```javascript
+function SampleComponent() {
+  const state = useSouki();
+  const setSoukiState = useSetSouki();
+
+  return (
+    <>
+      <p>
+        {state.count}
+      </p>
+      <button onClick={() => {setSoukiState((s) => ({count: s.count + 1}))}}>
+        up count
+      </button>
+    </>
+  );
+}
+```
+
+See the examples/create-react-app file for details.
+
+
 ## Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
